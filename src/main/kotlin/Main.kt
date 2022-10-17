@@ -18,7 +18,7 @@ fun main() {
     print(point1 == point2)
 
     val fraction1 = Fraction(1,4)
-    val fraction2 = Fraction(3,5)
+    val fraction2 = Fraction(3,7)
     print("truncated fraction1: ")
     println(fraction1.truncate())
     print("truncated fraction2: ")
@@ -27,6 +27,8 @@ fun main() {
     println(fraction1.multiplication(fraction2))
     print("sum of two fractions: ")
     println(fraction1.sum(fraction2))
+    print("check equality of two fractions: ")
+    println(fraction1.equals(fraction2))
 }
 
 class Point(private val x: Double = 0.0, private val y:Double = 0.0){
@@ -87,5 +89,9 @@ class Fraction(private var numerator: Int = 1, private var denominator: Int = 1)
         val sm :Int = a1+a2
         val ct = Fraction(sm, b2)
         return ct.truncate()
+    }
+
+    fun equals(fra: Fraction): Boolean {
+        return this.truncate() == fra.truncate()
     }
 }
